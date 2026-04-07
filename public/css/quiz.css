@@ -98,6 +98,7 @@ body {
     transition: background 0.3s, box-shadow 0.3s;
     position: relative;
     overflow: hidden;
+    margin: 3rem 1rem;
 }
 
 /* Decorative gradient bar at top of card */
@@ -218,7 +219,7 @@ body {
 }
 
 .option.correct { border-color: var(--green); background: var(--opt-hover); }
-.option.correct .label { background: var(--green); color: #fff; }
+.option.correct .label { linear-gradient(135deg, #8fffb8, #195a31) color: #fff; }
 .option.wrong   { border-color: var(--red-border); background: var(--red-bg); }
 .option.wrong .label { background: var(--red); color: #fff; }
 .option:disabled { cursor: default; transform: none; }

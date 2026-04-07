@@ -42,10 +42,10 @@ class QuizController extends Controller
                     'explanation' => '/var/log is where the system and application log files are stored.',
                 ],
                 [
-                    'question'    => 'What percentage of servers run Linux?',
-                    'options'     => ['60%', '75%', '88%', '96%'],
-                    'correct'     => 3,
-                    'explanation' => 'Around 96% of the world\'s servers run Linux, making it the dominant server OS.',
+                    'question'    => 'Which directory contains basic commands like ls, cd and pwd?',
+                    'options'     => ['/usr', '/opt', '/bin', '/sbin'],
+                    'correct'     => 2,
+                    'explanation' => '/bin contains essential user commands like ls, cd, pwd, cp and mv. These are the basic commands available to all users.',
                 ],
                 [
                     'question'    => 'Which layer sits between the Shell and the Hardware?',
@@ -84,5 +84,38 @@ class QuizController extends Controller
         $quiz = $this->quizzes[$slug];
 
         return view('quiz', compact('quiz', 'slug'));
+    }
+
+    // QuizController - add index method
+    public function index()
+    {
+        $quizzes = [
+            [
+                'series'  => 'DevOps Fundamentals',
+                'quizzes' => [
+                    [
+                        'title'       => 'Linux Basics',
+                        'description' => 'Kernel, architecture, file system and history.',
+                        'slug'        => 'linux-basics',
+                        'available'   => true,
+                    ],
+                    [
+                        'title'       => 'Linux in Practice',
+                        'description' => 'SSH, permissions, users and package management.',
+                        'slug'        => 'linux-in-practice',
+                        'available'   => false,
+                    ],
+                    [
+                        'title'       => 'Linux Power Tools',
+                        'description' => 'grep, awk, sed, find and process management.',
+                        'slug'        => 'linux-power-tools',
+                        'available'   => false,
+                    ],
+                ],
+            ]
+
+        ];
+
+        return view('index', compact('quizzes'));
     }
 }
